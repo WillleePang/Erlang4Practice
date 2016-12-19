@@ -1,5 +1,5 @@
 -module(lib_misc).
--export([for/3,qsort/1,pythag/1,perms/1]).
+-export([for/3,qsort/1,pythag/1,perms/1,filter/2]).
 
 
 for(Max,Max,F) -> [F(Max)];
@@ -22,3 +22,11 @@ pythag(N)->
 
 perms([])->[[]];
 perms([H|T]||H<-L,T<-perms(L--[H])].
+
+filter(P,[H|T])->
+	case P(H) of
+		true->[H|filter(P,T)]
+		false->filter(P,T)
+	end;
+filter(P,[])->
+	[].
