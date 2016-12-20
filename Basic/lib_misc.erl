@@ -46,3 +46,9 @@ odds_and_evens_acc([H|T],Odds,Evens)->
 	end;
 odds_and_evens_acc([],Odds,Evens)->
 	{lists:reverse(Odds),lists:reverse(Evens)}.
+
+sqrt(X) when X < 0 ->
+	erlang:error({squareRootNegativeArgument, -1});
+sqrt(X) ->
+	math:sqrt(X).
+
