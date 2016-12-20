@@ -51,4 +51,3 @@ sqrt(X) when X < 0 ->
 	erlang:error({squareRootNegativeArgument, -1});
 sqrt(X) ->
 	math:sqrt(X).
-
