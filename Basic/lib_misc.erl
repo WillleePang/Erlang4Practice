@@ -51,3 +51,25 @@ sqrt(X) when X < 0 ->
 	erlang:error({squareRootNegativeArgument, -1});
 sqrt(X) ->
 	math:sqrt(X).
+
+sleep(T) ->
+	receive
+	after T ->
+		true
+	end.
+
+flush_buffer(T) ->
+	receive
+		_Any ->
+			flush_buffer()
+	after 0 ->
+		true
+	end.
+
+priority_receive() ->
+	receive
+		{alarm,X} ->
+			{alarm,X}
+	after 0 ->
+		
+	end.
