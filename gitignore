@@ -12,5 +12,6 @@ ebin/*.beam
 rel/example_project
 .concrete/DEV_MODE
 .rebar
+.txt
 
 # End of https://www.gitignore.io/api/erlang
