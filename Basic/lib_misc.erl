@@ -73,3 +73,13 @@ priority_receive() ->
 	after 0 ->
 		
 	end.
+
+on_exit(Pid,Fun) ->
+	spawn(fun() - >
+		process_flag(trap_exit,true),
+		link(Pid),
+		receive
+			{'EXIT',Pid,Why} ->
+				Fun(Why)
+		end
+	end).
